@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="content">
+    <form [formGroup]="blogForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name">
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description"></textarea>
+      </div>
+      <div>
+        <label for="link">Link:</label>
+        <input type="text" id="link" formControlName="link">
+      </div>
+      <input type="hidden" formControlName="fileEntityId">
+      <div>
+        <label for="fileEntityId">Image:</label>
+        <input type="file" id="fileEntityId" (change)="onImageChange($event)">
+        <img *ngIf="imagePreview" [src]="imagePreview" alt="Photo Preview">
+      </div>
+
+      <button (click)="sendPostToBackend()">Post</button>
+    </form>
+  </div>
+</div>
+

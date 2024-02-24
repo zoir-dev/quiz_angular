@@ -1,0 +1,31 @@
+<div class="mainText">
+  Natijalar
+</div>
+<div class="main">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ism</th>
+        <th scope="col">Familya</th>
+        <th scope="col">Category</th>
+        <th scope="col">Ball</th>
+        <th scope="col">To'g'ri javoblar</th>
+        <th scope="col">Qatnashgan Savollar</th>
+        <th scope="col">Vaqti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of results">
+        <td>{{r?.id}}</td>
+        <td>{{r?.user?.name}}</td>
+        <td>{{r?.user?.surname}}</td>
+        <td>{{r?.questionLevel?.level}}</td>
+        <td>{{r?.score}}</td>
+        <td>{{r?.point}}</td>
+        <td>{{r?.attemptedQuestions}}</td>
+        <td>{{r?.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

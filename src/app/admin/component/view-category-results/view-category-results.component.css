@@ -1,0 +1,18 @@
+.mainText{
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 600px;
+}
+th{
+  width: 30px;
+}
+td{
+  padding: 20px;
+}
+
+.main{
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 300px;
+}

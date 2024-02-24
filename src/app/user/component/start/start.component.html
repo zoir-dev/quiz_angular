@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="main">
+    <div *ngIf="!isSubmit">
+      <nav class="navbar navbar-light border-bottom">
+        <div class="container" style="cursor: pointer;">
+          <h1 class="navbar-brand fw-bold">Mutallim</h1>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-md-2" style="margin-top: 20px; margin-right: 20px;">
+            <!-- progress -->
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Timer</mat-card-title>
+                <mat-card-subtitle>
+                  Vaqt tugashi bilan keyingi savolga o'tadi
+                </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <h1 class="text-center" style="color: #2AF598; font-size: 60px; font-family: cursive; margin: auto;">{{
+                  counter }}</h1>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <div class="col-md-8" style="margin-top:20px; padding: 10px;">
+            <!-- questions  -->
+            <ng-container>
+              <h1 class="mt20" style="text-align: center; font-family: 'Courier New', Courier, monospace;">Savollar</h1>
+            </ng-container>
+
+            <div class="d-flex justify-content-around py-3">
+              <div class="score">
+                <span>{{point}} to'g'ri javob</span>
+              </div>
+              <div class="question-remain">
+                <span style="font-style: italic;">Savollar {{ currentQuestion + 1 }} / {{ questionListLength }}</span>
+              </div>
+            </div>
+
+
+            <div class="question">
+
+              <div class="d-flex align-items-center justify-content-center">
+                <h1 [innerHTML]="questionList[currentQuestion].title"> </h1>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-center">
+                <input [(ngModel)]="submitAnswer.answer" type="text" name="answer">
+              </div>
+
+              <br /><br /><br />
+
+              <div class="btns">
+                <button [disabled]="currentQuestion >= questionListLength" (click)="formSubmit()" mat-raised-button
+                  color="primary">Javobni kiritish</button>
+                <button (click)="submitQuiz()" mat-raised-button color="warn">Testni tugatish</button>
+                <!-- <button class="btn" (click)="nextQuestion()">Nex</button> -->
+                <button [disabled]="currentQuestion >= questionListLength - 1" (click)="nextQuestion()" type="button"
+                  class="btn btn-warning" style="color: white;">Keyingi Savol</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-50 mx-auto" *ngIf="isSubmit" style="font-family:'Courier New', Courier, monospace ;">
+      <!-- header -->
+      <nav class="navbar navbar-light border-bottom">
+        <div class="container" style="cursor: pointer;">
+          <h1 class="navbar-brand fw-bold">Mutallim</h1>
+        </div>
+      </nav>
+      <br>
+      <div class="bootstrap-wrapper">
+        <div class="row mt20">
+          <div class="col-md-6 offset-md-3">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Test natijalari</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="text-center">
+                <h1>Ball: <b>{{marksGot}}/100</b></h1>
+                <h1>To'gri javoblar: <b>{{point}}/{{questionList.length}}</b></h1>
+                <h1>Ishlangan misollar: <b>{{attempted}}/{{questionList.length}}</b></h1>
+              </mat-card-content>
+              <mat-card-actions class="text-center">
+                <button mat-raised-button color="primary" (click)="printPage()">Chop etish</button>
+                <button mat-raised-button color="accent" [routerLink]="'/user'">Test sahifasi</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+
+.main {
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  min-height: 90vh;
+  max-height: 95vh;
+  overflow: auto;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+
+:active.like{
+  color: red;
+
+}
+
+.sidenavTitles{
+  font-size: 15px;
+  font-weight: 650;
+}
+
+#mat-toolbar{
+  background-color: #009FFD;
+}
+
+
+

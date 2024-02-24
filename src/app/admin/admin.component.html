@@ -1,0 +1,138 @@
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<mat-toolbar id="mat-toolbar" >
+
+  <mat-toolbar-row>
+
+    <span style="margin-left: 40px; color:white">
+      <h1>Mutallim</h1>
+    </span>
+
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon style="color:white" class="mat-18">
+        menu
+      </mat-icon>
+    </button>
+
+    <span class="example-spacer"></span>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-sidenav-container  class="example-container">
+  <mat-sidenav style="background-color: rgb(58, 72, 107); width: 250px; padding-left: 30px;" #drawer mode="side" opened>
+    <mat-nav-list style="color:#fff;" >
+
+      <div  class="sidenavTitles">BOSH SAHIFA</div>
+
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['dashboard']">
+        <mat-icon class="sidenav-icon" style="color: #fff ;">home</mat-icon>
+        Bosh Sahifa
+      </a>
+      <br>
+      <div class="sidenavTitles">KATEGORIYA</div>
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['category']">
+        <mat-icon class="sidenav-icon" style="color: #fff ;">
+          sort
+        </mat-icon>
+        Kategoriya
+      </a>
+      <br>
+      <div class="sidenavTitles">SAVOLLAR</div>
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['question-add']">
+        <mat-icon class="sidenav-icon" style="color: #fff ;">
+          add
+        </mat-icon>
+        Yangi Savol
+      </a>
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['question-list']">
+        <mat-icon class="sidenav-icon" style="color: #fff ;">
+          list
+        </mat-icon>
+        Savollar Ro'yxati
+      </a>
+      <br>
+      <div class="sidenavTitles">BLOG</div>
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['new-blog']">
+        <mat-icon class="sidenav-icon" style="color: #fff ;">
+          book
+        </mat-icon>
+        Blog qo'shish
+      </a>
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['blog-list']">
+        <mat-icon class="sidenav-icon" style="color: #fff ;">
+          book
+        </mat-icon>
+        Bloglar ro'yxati
+      </a>
+      <br>
+      <div class="sidenavTitles">FOYDALANUVCHILAR</div>
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['users']">
+        <mat-icon class="sidenav-icon" style="color: #fff ;">
+          account_circle
+        </mat-icon>
+        Foydalanuvchilar
+      </a>
+      <br>
+      <div class="sidenavTitles">NATIJALAR</div>
+      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['results']">
+        <mat-icon class="sidenav-icon" style="color: #fff;">
+          check_circle
+        </mat-icon>
+         Natijalar
+      </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<nz-layout>-->
+<!--  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">-->
+<!--    <div class="logo"></div>-->
+<!--    <ul nz-menu nzTheme="dark" nzMode="inline">-->
+<!--      <li nz-submenu nzTitle="User" nzIcon="user">-->
+<!--        <ul>-->
+<!--          <li nz-menu-item>Tom</li>-->
+<!--          <li nz-menu-item>Bill</li>-->
+<!--          <li nz-menu-item>Alex</li>-->
+<!--        </ul>-->
+<!--      </li>-->
+<!--      <li nz-submenu nzTitle="Team" nzIcon="team">-->
+<!--        <ul>-->
+<!--          <li nz-menu-item>Team 1</li>-->
+<!--          <li nz-menu-item>Team 2</li>-->
+<!--        </ul>-->
+<!--      </li>-->
+<!--      <li nz-menu-item>-->
+<!--        <span nz-icon nzType="file"></span>-->
+<!--        <span>File</span>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </nz-sider>-->
+<!--  <nz-layout>-->
+<!--    <nz-header>-->
+<!--          <span-->
+<!--            class="trigger"-->
+<!--            nz-icon-->
+<!--            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"-->
+<!--            (click)="isCollapsed = !isCollapsed"-->
+<!--          ></span>-->
+<!--    </nz-header>-->
+<!--    <nz-content>-->
+<!--      <nz-breadcrumb>-->
+<!--        <nz-breadcrumb-item>User</nz-breadcrumb-item>-->
+<!--        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>-->
+<!--      </nz-breadcrumb>-->
+<!--      <div class="inner-content">Bill is a cat.</div>-->
+<!--    </nz-content>-->
+<!--    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>-->
+<!--  </nz-layout>-->
+<!--</nz-layout>-->

@@ -1,0 +1,46 @@
+.main {
+  min-height: 100vh;
+  background-color: #2A2A72;
+  background-image: linear-gradient(315deg, #2A2A72 0%, #009FFD 74%);
+}
+
+.question {
+  h1 {
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0;
+    margin-right: 6px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  input {
+    width: 100px;
+    padding: 4px 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    text-align: center;
+  }
+
+  input:focus {
+    outline: 0;
+    border-color: #ff0000;
+  }
+}
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+}
+@media (min-width: 32rem) {
+  .btns {
+    flex-direction: row;
+  }
+}
+
+@media print {
+  button {
+    display: none;
+  }
+}

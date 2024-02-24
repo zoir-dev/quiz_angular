@@ -1,0 +1,49 @@
+
+
+<body>
+  
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 py-6">
+      <div class="auth-wrapper">
+        <form #formSignUp="ngForm" class="form-signin" (ngSubmit)="signup(formSignUp)">
+          <h1 style="color: white;" class="mb-3 fw-bold mat-title text-uppercase text-center">Iltimos ro'yxadan o'ting</h1>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Ism</mat-label>
+            <!-- <input matInput type="text" required name="name" /> -->
+            <input matInput type="text" required name="name" #name="ngModel" ngModel />
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Familya</mat-label>
+            <input matInput type="text" required name="surname" #name="ngModel" ngModel />
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" required name="email" #name="ngModel" ngModel />
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Login</mat-label>
+            <input matInput type="text" required name="username" #name="ngModel" ngModel />
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Parol</mat-label>
+            <input matInput type="password" required name="password" #name="ngModel" ngModel />
+          </mat-form-field>
+          <div class="text-end">
+            <div class="d-flex justify-content-between align-items-center">
+              <button type="submit" mat-raised-button class="px-4" color="warn" style="color:white; margin-top:10px; margin-left: 5px;">
+                Ro'yxatdan o'tish
+              </button>
+              <button id="enter_btn"> <a id="enter"[routerLink]="['/auth/login']">Kirish</a>
+              
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>

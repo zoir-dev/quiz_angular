@@ -1,0 +1,20 @@
+.container{
+  width: 900px;
+  margin: 0 auto;
+
+  div{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.main_title{
+   margin-top: 10px;
+   margin-left: 30px;
+
+}
+
+#toggle{
+   margin-left: 30px;
+}

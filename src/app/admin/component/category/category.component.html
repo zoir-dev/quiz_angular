@@ -1,0 +1,84 @@
+<div class="main">
+
+  <div class="header">
+    <span class="mainText">Kategoriyalar Ro'yxati</span>
+
+    <span class="addButton">
+      <button type="button" mat-fab color="warn" (click)="openModal(template)">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <ng-template #template>
+        <div class="modal-header">
+          <h4 class="modal-title">Kategoriya</h4>
+
+
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="questionLevelForm" (ngSubmit)="saqlash()">
+
+            <mat-form-field *ngIf='tahrirRejim' appearance="outline">
+              <mat-label>ID</mat-label>
+              <input formControlName="id" readonly matInput placeholder="ID" autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Matn</mat-label>
+              <input formControlName="level" matInput placeholder="Title...">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Sarlavha</mat-label>
+              <textarea formControlName="info" matInput placeholder="Description..."></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Timer</mat-label>
+              <textarea formControlName="timer" matInput placeholder="Timer..."></textarea>
+            </mat-form-field>
+
+            <button [disabled]="questionLevelForm.invalid || surovBajarilmoqda" style="width: 400px; margin: auto;"
+              mat-stroked-button type="submit">
+              <mat-spinner *ngIf="surovBajarilmoqda" diameter="20" color="warn"></mat-spinner>
+              Saqlash
+            </button>
+            <br>
+            <button style="width: 400px; margin: auto; margin-bottom: 20px; border: 2px solid rgb(0, 0, 0); color: rgb(0, 0, 0);"
+              mat-stroked-button type="reset" (click)="tozalash()">
+              Bekor qilish</button>
+          </form>
+        </div>
+      </ng-template>
+    </span>
+  </div>
+  <br>
+  <br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Matn</th>
+        <th>Sarlavha</th>
+        <th>Timer</th>
+        <th>Amallar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let l of questionLevels">
+        <td>{{l?.id}}</td>
+        <td>{{l?.level}}</td>
+        <td>{{l?.info}}</td>
+        <td>{{l?.timer}}</td>
+        <td>
+          <button mat-mini-fab color="primary" (click)="tahrirlash(l)" (click)="openModal(template)">
+            <mat-icon diametr=5>edit</mat-icon>
+          </button>
+          &nbsp;
+          <button mat-mini-fab color="warn" mat-button (click)="ochirish(l)">
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
