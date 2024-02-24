@@ -42,7 +42,7 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.load();
 
     this.questionForm = this.fb.group({
       id: [''],
@@ -72,6 +72,7 @@ export class QuestionComponent implements OnInit {
 
       console.log(royxat);
       this.questions = royxat.content;
+      console.log(royxat.content, ' questions')
 
       this.length = royxat.totalElements;
     });
@@ -83,7 +84,7 @@ export class QuestionComponent implements OnInit {
     let question = this.questionForm.getRawValue();
     let surov;
     if (this.tahrirRejim)
-      surov = this.questionService.update(question);
+      surov = this.questionService.update(question.id, question);
     else
       surov = this.questionService.create(question);
 

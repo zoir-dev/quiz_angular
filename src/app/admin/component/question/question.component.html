@@ -1,36 +1,44 @@
 <mat-card>
+  <!-- Card Header -->
   <mat-card-header>
     <mat-card-title>Savollar</mat-card-title>
     <mat-card-subtitle>Savollar bilan ishlash bo'limi</mat-card-subtitle>
   </mat-card-header>
+
+  <!-- Card Content -->
   <mat-card-content>
+    <!-- Accordion for Adding New Question -->
     <mat-accordion color="light" displayMode="default" [multi]="true" [hideToggle]="false">
       <mat-expansion-panel [hideToggle]="false" [(expanded)]="formOchiq">
-        <mat-expansion-panel-header>Yangi savol qo'shish
+        <mat-expansion-panel-header>
+          Yangi savol qo'shish
           <mat-icon class="mat-18">add</mat-icon>
         </mat-expansion-panel-header>
 
+        <!-- Question Form -->
         <form [formGroup]="questionForm" (ngSubmit)="saqlash()">
-
+          <!-- ID Field (shown only in editing mode) -->
           <mat-form-field *ngIf='tahrirRejim' appearance="outline">
             <mat-label>ID</mat-label>
             <input formControlName="id" readonly matInput placeholder="ID" autocomplete="off">
             <mat-hint>ID</mat-hint>
           </mat-form-field>
 
+          <!-- Title Field -->
           <mat-form-field appearance="outline">
             <mat-label>Title</mat-label>
             <mat-hint>Titleni kiriting</mat-hint>
-            <input formControlName="title" matInput Title="Title...">
+            <input formControlName="title" matInput placeholder="Title...">
           </mat-form-field>
 
+          <!-- Answer Field -->
           <mat-form-field appearance="outline">
             <mat-label>Javob</mat-label>
-            <textarea formControlName="answer" matInput Answer="Javob...">
-                  </textarea>
+            <textarea formControlName="answer" matInput placeholder="Javob..."></textarea>
             <mat-hint>Javob</mat-hint>
           </mat-form-field>
 
+          <!-- Level Selection Dropdown -->
           <mat-form-field appearance="outline">
             <mat-label>Daraja</mat-label>
             <mat-hint>Darajani tanlang</mat-hint>
@@ -41,57 +49,58 @@
             </mat-select>
           </mat-form-field>
 
-          <button [disabled]="questionForm.invalid || surovBajarilmoqda" mat-raised-button color="primary"
-            type="submit">
+          <!-- Submit and Reset Buttons -->
+          <button  [disabled]="questionForm.invalid || surovBajarilmoqda" mat-raised-button color="primary" type="submit">
             <mat-spinner *ngIf="surovBajarilmoqda" diameter="20" color="warn"></mat-spinner>
             Saqlash
           </button>
-          <button mat-raised-button color="accent" type="reset" (click)="tozalash()">
-            Bekor qilish</button>
+          <button mat-raised-button color="accent" type="reset" (click)="tozalash()">Bekor qilish</button>
         </form>
-
-
-
       </mat-expansion-panel>
     </mat-accordion>
 
+    <!-- Questions List -->
     <div class="royxat">
       <h2>Savollar Ro'yxati</h2>
       <table class="table">
+        <!-- Table Header -->
         <thead class="table-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Answer</th>
-            <th scope="col">Category</th>
-          </tr>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Answer</th>
+          <th scope="col">Category</th>
+          <th scope="col">Actions</th>
+        </tr>
         </thead>
+        <!-- Table Body with *ngFor -->
         <tbody>
-          <tr *ngFor="let q of questions">
-            <td>{{q?.id}}</td>
-            <td>{{q?.title}}</td>
-            <td>{{q?.answer}}</td>
-            <td>{{q?.level}}</td>
-            <td>
-              <button mat-mini-fab mat-button color="primary" (click)="tahrir(q)">
-                <mat-icon diametr=5>edit</mat-icon>
-              </button>
-              <button mat-mini-fab color="warn" mat-button (click)="ochirish(q)">
-                <mat-icon class="mat-18">delete</mat-icon>
-              </button>
-            </td>
-          </tr>
+        <tr *ngFor="let q of questions">
+          <td>{{q?.id}}</td>
+          <td>{{q?.title}}</td>
+          <td>{{q?.answer}}</td>
+          <td>{{q?.level}}</td>
+          <td>
+            <!-- Edit and Delete Buttons -->
+            <button mat-mini-fab color="primary" (click)="tahrir(q)">
+              <mat-icon diametr=5>edit</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="ochirish(q)">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>
 
+    <!-- Paginator for Pagination -->
     <mat-paginator (page)="load()" #paginator [length]="length" [pageSize]="5" [pageSizeOptions]="[5, 7, 10, 12]"
-      aria-label="Select page">
+                   aria-label="Select page">
     </mat-paginator>
-
   </mat-card-content>
-
 </mat-card>
+
 <!--
 <div>
   <button mat-fab color="warn" aria-label="Example icon button with a home icon">
@@ -114,10 +123,10 @@
       <td>{{q?.answer}}</td>
       <td>{{q?.level}}</td>
       <td>
-        <button mat-mini-fab mat-button color="primary" (click)="tahrir(q)">
+        <button mat-mini-fab  color="primary" (click)="tahrir(q)">
           <mat-icon diametr=5>edit</mat-icon>
         </button>
-        <button mat-mini-fab color="warn" mat-button (click)="ochirish(q)">
+        <button mat-mini-fab color="warn" (click)="ochirish(q)">
           <mat-icon class="mat-18">delete</mat-icon>
         </button>
       </td>

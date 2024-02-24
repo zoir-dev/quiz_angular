@@ -1,16 +1,14 @@
 
-
-
  <h1 class="main_title">Xush Kelibsiz!</h1>
-
- <!-- <button mat-raised-button color="warn">TESTNI YOPISH</button> -->
  <br> <br>
+
  <div class="container">
-   <div>
-     <mat-radio-button (click)="onButtonClick(true)" class="m-2" color="warn" value="1">TESTNI YOPISH</mat-radio-button> <br> <br>
-     <mat-radio-button (click)="onButtonClick(false)" class="m-2" color="warn" value="2">TESTNI OCHISH</mat-radio-button>
-   </div>
+   <input type="checkbox" id="blockTestCheckbox" [(ngModel)]="isTestBlocked" (change)="onCheckboxChange()">
+   <label for="blockTestCheckbox" *ngIf="isTestBlocked==false">Testni bloklash</label>
+   <label for="blockTestCheckbox" *ngIf="isTestBlocked!=false">Testni blokdan ochish</label>
  </div>
+
+
 
 
 

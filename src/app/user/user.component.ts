@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('userComponent')
   }
 
 }

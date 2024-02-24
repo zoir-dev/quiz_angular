@@ -24,7 +24,7 @@ export class BloglistComponent implements OnInit {
   tahrirRejim = false;
   formOchiq = false;
   surovBajarilmoqda = false;
-  imageId = 0
+  imageId : any;
 
   constructor(
     private readonly blogService: BlogService,
@@ -76,7 +76,7 @@ export class BloglistComponent implements OnInit {
       this.blogService.getAll('').subscribe(data => {
         this.blogs = data.content;
       });
-    })
+    });
   }
 
   public openModal(template: TemplateRef<any>) {
@@ -93,8 +93,9 @@ export class BloglistComponent implements OnInit {
     });
   }
 
-
   tahrirlash(blog: any) {
+    console.log(blog, 'blog')
+    this.imageId= blog.fileEntity.id
     this.tahrirRejim = true;
     this.blogForm.reset(blog);
   }
@@ -125,34 +126,29 @@ export class BloglistComponent implements OnInit {
 
   sendPostToBackend() {
     const formData = this.blogForm.value;
+    console.log(formData, 'formData')
 
-    let surov;
-    if (formData.id){
-      surov = this.blogService.update(formData)
+    if (formData.id) {
+      this.blogService.update(formData.id, formData).subscribe(
+        (data) => {
+          this.reset();
+          this.surovBajarilmoqda = false;
+
+          if (this.modalRef) {
+            this.modalRef.hide();
+          }
+
+          // this.loadQuestions();
+
+        },
+        (error) => {
+          console.error('Error updating blog:', error);
+          this.snakBar.open('Xatolik ro\'y berdi', 'Ok');
+          this.surovBajarilmoqda = false;
+        }
+      );
     }
-    else {
-      surov = this.blogService.create(formData)
-    }
 
-    surov.subscribe(data => {
-      this.reset()
-      this.loadQuestions();
-      this.surovBajarilmoqda = false;
-    },
-      error => {
-        this.snakBar.open("Xatolik ro'y berdi", "Ok");
-        this.surovBajarilmoqda = false;
-      })
-
-    this.blogService.create(formData).subscribe(
-      (response) => {
-        console.log('Post created successfully', response);
-        this.blogForm.reset();
-        this.imagePreview = '';
-      },
-      (error) => {
-        console.error('Error creating post', error);
-      }
-    );
+    // window.location.reload()
   }
 }

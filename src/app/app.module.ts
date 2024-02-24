@@ -14,10 +14,10 @@ import { NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { AuthService } from './public/auth/auth.service';
 import { AuthInterceptor } from './public/auth/auth.interceptor';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { BlogComponent } from './blog/blog.component';
+
 
 @NgModule({
-  declarations: [AppComponent, DeleteDialog, BlogComponent],
+  declarations: [AppComponent, DeleteDialog,],
   imports: [
     BrowserModule,
     AppRoutingModule,

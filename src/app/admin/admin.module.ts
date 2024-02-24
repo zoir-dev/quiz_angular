@@ -16,7 +16,8 @@ import { UsersComponent } from './component/users/users.component';
 import { ResultsComponent } from './component/results/results.component';
 import { ViewCategoryResultsComponent } from './component/view-category-results/view-category-results.component';
 import {BloglistComponent} from "./component/bloglist/bloglist.component";
-import {BlogDetailComponent} from "./component/blogDetail/blogDetail.component";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -32,13 +33,14 @@ import {BlogDetailComponent} from "./component/blogDetail/blogDetail.component";
     ResultsComponent,
     ViewCategoryResultsComponent,
     BloglistComponent,
-    BlogDetailComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule,
     ...material_imports,
   ]
 })

@@ -11,24 +11,22 @@ export class DashboardComponent implements OnInit {
 
   isTestBlocked: boolean = false;
 
-  RadioButton?:HomeComponent;
-
   constructor(private readonly questionService: QuestionService) { }
 
   ngOnInit(): void {
+    // Retrieve the checkbox state from local storage on component initialization
+    const storedCheckboxState = localStorage.getItem('blockTestCheckboxState');
+    this.isTestBlocked = storedCheckboxState === 'true';
   }
 
-  onButtonClick(value: boolean) {
-    // Disable the button after it's clicked
-    this.isTestBlocked = true;
 
-    // Call the blockTest method from the service
-    this.questionService.blockTest(value).subscribe(
+
+  onCheckboxChange() {
+    localStorage.setItem('blockTestCheckboxState', this.isTestBlocked.toString());
+    this.questionService.blockTest(this.isTestBlocked).subscribe(
       (response) => {
-        // Handle the response if needed
       },
       (error) => {
-        // Handle errors if needed
       }
     );
   }

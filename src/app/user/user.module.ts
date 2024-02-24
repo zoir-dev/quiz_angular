@@ -7,8 +7,6 @@ import { material_imports } from '../shared/material-imports';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './component/test/test.component';
 import { StartComponent } from './component/start/start.component';
-// import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
-
 
 @NgModule({
   declarations: [
@@ -21,10 +19,6 @@ import { StartComponent } from './component/start/start.component';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    // NgxUiLoaderModule,
-    // NgxUiLoaderHttpModule.forRoot({
-    //   showForeground: true,
-    // }),
     ...material_imports
   ]
 })

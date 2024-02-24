@@ -5,7 +5,7 @@
 
   <mat-toolbar-row>
 
-    <span style="margin-left: 40px; color:white">
+    <span style="margin-left: 40px; color:white" (click)="route()">
       <h1>Mutallim</h1>
     </span>
 
@@ -27,9 +27,12 @@
 
       <div  class="sidenavTitles">BOSH SAHIFA</div>
 
-      <a style="color:#fff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['dashboard']">
-        <mat-icon class="sidenav-icon" style="color: #fff ;">home</mat-icon>
+      <a style="color:#ffffff;" mat-list-item [routerLinkActive]="'active'" [routerLink]="['dashboard']">
+        <mat-icon class="sidenav-icon" style="color: #ffffff ;">home</mat-icon>
+        <span>
         Bosh Sahifa
+
+      </span>
       </a>
       <br>
       <div class="sidenavTitles">KATEGORIYA</div>

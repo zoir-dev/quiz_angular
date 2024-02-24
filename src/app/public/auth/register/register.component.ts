@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  NgForm,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,10 +17,7 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  constructor(
-    public fb: FormBuilder,
-    private authService: AuthService
-  ) {
+  constructor(public fb: FormBuilder, private authService: AuthService) {
     this.registerForm = this.fb.group({
       name: [''],
       surname: [''],
@@ -21,13 +26,10 @@ export class RegisterComponent implements OnInit {
       password: [''],
     });
   }
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  signup(formSignUp: NgForm){
-    this.authService.signup(formSignUp.value)
+  signup(formSignUp: NgForm) {
+    this.authService.signup(formSignUp.value);
     console.log(formSignUp.value);
-
   }
 }

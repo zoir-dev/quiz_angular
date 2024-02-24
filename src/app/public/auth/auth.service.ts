@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class AuthService {
   readonly API_URL = `${environment.baseApi}`;
   readonly TOKEN_KEY = 'quiz-app-token';
-  user:any
+  user: any;
   isUserAuthenticated: boolean = false;
   authListener: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
@@ -20,13 +20,12 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
     private activateRoute: ActivatedRoute
-  ) { }
+  ) {}
 
   // Currently logged in users data
   public getCurrentUser() {
-    return this.http.get(`${this.API_URL}/current-user`)
+    return this.http.get(`${this.API_URL}/current-user`);
   }
-
 
   login(username: string, password: any) {
     const loginData = { username: username, password: password };
@@ -39,7 +38,8 @@ export class AuthService {
       .subscribe(
         (response) => {
           if (response.token) {
-            let returnUrl = this.activateRoute.snapshot.queryParamMap.get('returnUrl');
+            let returnUrl =
+              this.activateRoute.snapshot.queryParamMap.get('returnUrl');
 
             const token = response.token;
             this.isUserAuthenticated = true;
@@ -51,7 +51,6 @@ export class AuthService {
 
             this.router.navigate([returnUrl || '/']);
 
-            console.log(response);
             this.decodedToken();
           }
         },
@@ -63,22 +62,23 @@ export class AuthService {
             timer: 1500,
             showConfirmButton: true,
           });
-          console.log(err);
         }
       );
   }
 
   signup(formSignUp: any) {
-    this.http.post(this.API_URL + '/account/register', formSignUp).subscribe((response) => {
-      if (response) {
-        Swal.fire({
-          title: 'Muvaffaqiyatli...',
-          text: "Siz muvaffaqiyatli ro'yxatdan o'tdingiz!",
-          icon: 'success',
-          timer: 1500,
-        });
-      }
-    });
+    this.http
+      .post(this.API_URL + '/account/register', formSignUp)
+      .subscribe((response) => {
+        if (response) {
+          Swal.fire({
+            title: 'Muvaffaqiyatli...',
+            text: "Siz muvaffaqiyatli ro'yxatdan o'tdingiz!",
+            icon: 'success',
+            timer: 1500,
+          });
+        }
+      });
   }
 
   getToken() {
@@ -99,7 +99,6 @@ export class AuthService {
     if (token) {
       const helper = new JwtHelperService();
       const decode = helper.decodeToken(token);
-      console.log(decode);
       return decode;
     }
   }
@@ -115,5 +114,4 @@ export class AuthService {
     sessionStorage.removeItem(this.TOKEN_KEY);
     this.router.navigate(['/home']);
   }
-
 }

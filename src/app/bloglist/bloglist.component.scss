@@ -1,91 +1,112 @@
-/* blog-list.component.css */
-.blog-list {
+.container-wrapper{
+  background-color: #101424 !important;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+.blog-title{
+  position: absolute;
+  top: 20px;
+  left: 20px;
   display: flex;
-  flex-wrap: wrap;
+  color: #ffffff;
+  cursor: pointer;
+  h1{
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wrap{
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto !important;
+}
+
+.blog-list {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 .blog-item {
-  border: 1px solid #ccc;
+  border: 1px solid #202434;
+  border-radius: 8px;
+  margin: 10px 0;
+  width: 300px;
+  background-color: #202434;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.info-content{
   padding: 15px;
-  margin: 10px;
-  max-width: 400px;
-  text-align: left;
+}
+
+.blog-item:hover {
+  transform: translateY(-5px);
 }
 
 .blog-item img {
   max-width: 100%;
-  height: 210px;
+  height: auto;
+  border-radius: 6px;
 }
 
-.modal-header{
-  background-color: #009FFD;
-  color: #fff;
-}
-
-
-form {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-div {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-textarea,
-input[type="file"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  box-sizing: border-box;
-}
-
-.saveBtn {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.saveBtn:hover {
-  background-color: #45a049;
-}
-
-/* Style for image preview */
-img {
-  max-width: 100%;
-  height: 60%;
+.blog-item h2 {
+  font-size: 1.2em;
   margin-top: 10px;
+  color: #ffffff;
+}
+
+.blog-item p {
+  font-size: 1em;
+  color: #ffffff;
+}
+
+.blog-item a {
+  color: #3498db;
+  text-decoration: none;
   display: block;
+  margin-top: 10px;
 }
 
-.icons{
-  display: flex;
-  justify-content: right;
-  margin-bottom: 0;
-
-  div{
-    margin-bottom: 0;
-  }
-
-  span{
-    margin: 0 3px;
-    cursor: pointer;
-  }
+.icons {
+  margin-top: 15px;
 }
 
+.icons span {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.5em;
+  color: #555;
+}
 
+.icons span:hover {
+  color: #3498db;
+}
 
+@media screen and (max-width: 600px) {
+  .container{
+    max-width: 100% !important;
+  }
+
+  .wrap{
+    max-width: 100% !important;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .content{
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

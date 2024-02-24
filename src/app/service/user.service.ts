@@ -15,9 +15,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getAll(params: any): Observable<Page> {
-    return this.http.get<Page>(this.api, {
+    return this.http.get<Page>(this.api+ '/all', {
+
       params: params
     });
+    console.log(params);
   }
 
   getById(id: number): Observable<User> {

@@ -5,8 +5,13 @@
   margin-left: 600px;
 }
 
+::ng-deep .main {
+  margin-bottom: 100px;
+}
+
 .container{
   width: 900px;
+  height: 100vh;
   margin: 0 auto;
 }
 
@@ -25,6 +30,7 @@ mat-spinner{
 }
 .buttons{
   margin-left: 200px;
+  margin-bottom: 200px;
 }
 
 .upload{

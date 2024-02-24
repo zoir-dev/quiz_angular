@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from './public/auth/admin.guard';
 import { AuthGuard } from './public/auth/auth.guard';
-// import { UserAccessGuard } from './core/user-access.guard';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
-import { StartComponent } from './user/component/start/start.component';
-import {BloglistModule} from "./bloglist/bloglist.module";
+
 
 const routes: Routes = [
   {

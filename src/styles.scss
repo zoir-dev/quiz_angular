@@ -1,16 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
+html, body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-/* Importing Bootstrap SCSS file. */
-@import "~bootstrap/scss/bootstrap";
+/* Importing Bootstrap CSS file. */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* Importing Datepicker SCSS file. */
-@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+/* Importing ngx-bootstrap Datepicker CSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+
+/* Add your additional global styles below if needed */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.mat-mdc-list-item-unscoped-content{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 0 !important;
+}

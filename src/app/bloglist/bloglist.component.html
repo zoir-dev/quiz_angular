@@ -1,55 +1,21 @@
-<h1 class="m-3">Blogs</h1>
-<span class="addButton">
-      <ng-template #template>
-        <div class="modal-header">
-          <h4 class="modal-title">Blog</h4>
+<div class="container-wrapper">
+  <div class="blog-title">
+    <h1 [routerLink]="['/home']">Home/</h1>
+    <h1>Blogs</h1>
+  </div>
+  <div class="container">
+    <div class="wrap">
+      <div class="blog-list">
+          <div *ngFor="let blog of blogs" class="blog-item">
+            <img [src]="faylService.getImageUrl(blog.fileEntity.id)" alt="Blog Image">
+            <div class="info-content">
+              <h2>{{ blog.name }}</h2>
+              <p>{{ blog.description }}</p>
+              <a [href]="blog.link" target="_blank">Link</a>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-          <form [formGroup]="blogForm" (ngSubmit)="sendPostToBackend()">
-
-              <div>
-                <label for="id">Id:</label>
-                <input formControlName="id" id="id" type="text">
-              </div>
-
-              <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" formControlName="name">
-              </div>
-
-              <div>
-                <label for="description">Description:</label>
-                <textarea id="description" formControlName="description"></textarea>
-              </div>
-
-              <div>
-                <label for="link">Link:</label>
-                <input type="text" id="link" formControlName="link">
-              </div>
-
-              <input type="hidden" formControlName="fileEntityId">
-
-              <div>
-                <label for="fileEntityId">Image:</label>
-                <input type="file" id="fileEntityId" (change)="onImageChange($event)">
-                <img *ngIf="imagePreview" [src]="imagePreview" alt="Photo Preview">
-                <img [src]="faylService.getImageUrl(imageId)" alt="Blog Image">
-              </div>
-            <button class="saveBtn" [disabled]="blogForm.invalid " style="width: 400px; margin: auto;"
-                    mat-stroked-button type="submit">Saqlash
-            </button>
-            <br>
-          </form>
-        </div>
-      </ng-template>
-    </span>
-
-<div class="blog-list">
-  <div *ngFor="let blog of blogs" class="blog-item">
-    <img [src]="faylService.getImageUrl(blog.fileEntity.id)" alt="Blog Image">
-    <h2>{{ blog.name }}</h2>
-    <p>{{ blog.description }}</p>
-    <a [href]="blog.link" target="_blank">{{ blog.link }}</a>
+    </div>
   </div>
 </div>
 

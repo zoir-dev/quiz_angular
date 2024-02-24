@@ -124,35 +124,6 @@ export class BloglistComponent implements OnInit {
   }
 
   sendPostToBackend() {
-    const formData = this.blogForm.value;
-
-    let surov;
-    if (formData.id){
-      surov = this.blogService.update(formData)
-    }
-    else {
-      surov = this.blogService.create(formData)
-    }
-
-    surov.subscribe(data => {
-      this.reset()
-      this.loadQuestions();
-      this.surovBajarilmoqda = false;
-    },
-      error => {
-        this.snakBar.open("Xatolik ro'y berdi", "Ok");
-        this.surovBajarilmoqda = false;
-      })
-
-    this.blogService.create(formData).subscribe(
-      (response) => {
-        console.log('Post created successfully', response);
-        this.blogForm.reset();
-        this.imagePreview = '';
-      },
-      (error) => {
-        console.error('Error creating post', error);
-      }
-    );
   }
+
 }

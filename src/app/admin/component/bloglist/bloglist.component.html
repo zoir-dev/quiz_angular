@@ -31,9 +31,9 @@
 
               <div>
                 <label for="fileEntityId">Image:</label>
-                <input type="file" id="fileEntityId" (change)="onImageChange($event)">
+                <input type="file" id="fileEntityId" formControlName="fileEntityId" (change)="onImageChange($event)">
                 <img *ngIf="imagePreview" [src]="imagePreview" alt="Photo Preview">
-                <img [src]="faylService.getImageUrl(imageId)" alt="Blog Image">
+                <img *ngIf="!imagePreview" [src]="faylService.getImageUrl(imageId)" alt="Blog Image">
               </div>
             <button class="saveBtn" [disabled]="blogForm.invalid " style="width: 400px; margin: auto;"
                     mat-stroked-button type="submit">Saqlash
@@ -44,27 +44,35 @@
       </ng-template>
     </span>
 
-<div class="blog-list">
-  <div *ngFor="let blog of blogs" class="blog-item">
-    <img [src]="faylService.getImageUrl(blog.fileEntity.id)" alt="Blog Image">
-    <h2>{{ blog.name }}</h2>
-    <p>{{ blog.description }}</p>
-    <a [href]="blog.link" target="_blank">{{ blog.link }}</a>
-    <div class="icons">
-      <div>
-        <span [routerLink]="['/blog-list/detail', blog.id]">
-          <mat-icon color="warn" diametr=5>view</mat-icon>
-        </span>
-        <span (click)="tahrirlash(blog)" (click)="openModal(template)">
-          <mat-icon color="primary" diametr=5>edit</mat-icon>
-        </span>
-        <span (click)="deleteBlog(blog.id)">
-          <mat-icon color="warn" class="mat-18">delete</mat-icon>
-        </span>
+<div class="container">
+  <div class="wrap">
+    <div class="blog-list">
+      <div *ngFor="let blog of blogs" class="blog-item">
+        <img [src]="faylService.getImageUrl(blog.fileEntity.id)" alt="Blog Image">
+        <div class="info-content">
+          <h2>{{ blog.name }}</h2>
+          <p>{{ blog.description }}</p>
+          <a [href]="blog.link" target="_blank">{{ blog.link }}</a>
+          <div class="icons">
+            <div>
+            <span>
+              <mat-icon color="warn" diametr=5>view</mat-icon>
+            </span>
+              <span (click)="tahrirlash(blog)" (click)="openModal(template)">
+              <mat-icon color="primary" diametr=5>edit</mat-icon>
+            </span>
+              <span (click)="deleteBlog(blog.id)">
+              <mat-icon color="warn" class="mat-18">delete</mat-icon>
+            </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 

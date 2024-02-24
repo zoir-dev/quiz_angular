@@ -2,7 +2,10 @@
   flex: 1 1 auto;
 }
 
-
+::ng-deep .mat-mdc-list-item-unscoped-content{
+  color: #ffffff !important;
+  padding-bottom: 26px;
+}
 
 .main {
   font-family: 'Times New Roman', Times, serif;
@@ -11,7 +14,6 @@
   max-height: 95vh;
   overflow: auto;
 }
-
 .example-sidenav {
   padding: 20px;
 }

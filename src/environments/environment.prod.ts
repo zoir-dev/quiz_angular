@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseApi: 'https://api.mutaallim-edu.uz/api',
+  baseApi: 'http://167.71.49.153:5300/api',
 };

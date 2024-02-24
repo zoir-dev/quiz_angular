@@ -27,12 +27,16 @@ export class BlogService {
     return this.http.post<any>(this.api, blog);
   }
 
-  update(blog: any): Observable<any> {
-    return this.http.put<any>(this.api, blog);
+  update(id: number, blog: any): Observable<any> {
+    const url = `${this.api}/${id}`;
+    return this.http.put<any>(url, blog);
   }
 
+
   deleteById(id: number): Observable<any> {
-    return this.http.delete<any>(this.api + "/get/" + id);
+    const url = `${this.api}/${id}`;
+    return this.http.delete<any>(url);
   }
+
 }
 

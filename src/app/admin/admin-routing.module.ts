@@ -6,22 +6,18 @@ import { CategoryComponent } from './component/category/category.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { QuestionAddComponent } from './component/question-add/question-add.component';
 import { QuestionListComponent } from './component/question-list/question-list.component';
-import { QuestionComponent } from './component/question/question.component';
+
 import { ResultsComponent } from './component/results/results.component';
 import { UsersComponent } from './component/users/users.component';
 import { ViewCategoryResultsComponent } from './component/view-category-results/view-category-results.component';
 import {BloglistComponent} from "./component/bloglist/bloglist.component";
-import {BlogDetailComponent} from "./component/blogDetail/blogDetail.component";
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'dashboard',
-      },
+      { path: 'admin', redirectTo: 'dashboard', pathMatch: 'full' },
       {
         path: 'dashboard',
         component: DashboardComponent
@@ -35,10 +31,6 @@ const routes: Routes = [
         component: QuestionAddComponent
       },
       {
-        path:'question',
-        component: QuestionComponent
-      },
-      {
         path:'question-list',
         component: QuestionListComponent
       },
@@ -49,12 +41,6 @@ const routes: Routes = [
       {
         path:'blog-list',
         component: BloglistComponent,
-        children: [
-          {
-            path: 'detail/:id',
-            component: BlogDetailComponent
-          }
-        ]
       },
       {
         path:'users',

@@ -68,5 +68,4 @@ export const material_imports = [
   MatDatepickerModule,
   ModalModule.forRoot(),
   CKEditorModule,
-
 ];
